@@ -13,5 +13,8 @@ all: $(archive)
 $(archive): $(files)
 	tar czf $@ -- $(files)
 
+clean: 
+	rm -rf *.tar.gz
+
 install: $(archive)
 	tar xzf $(archive) -C $(mozilladir)
