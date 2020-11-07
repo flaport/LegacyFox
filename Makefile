@@ -7,8 +7,7 @@ files += legacy/BootstrapLoader.jsm
 files += legacy/RDFDataSource.jsm
 files += legacy/RDFManifestConverter.jsm
 archive = legacyfox.tar.gz
-FIREFOXDIR = /usr/lib/firefox/
-WATERFOXDIR = /opt/waterfox-current/
+firefoxdir = /usr/lib/firefox/
 
 all: $(archive)
 $(archive): $(files)
@@ -18,9 +17,7 @@ clean:
 	rm -f $(archive)
 
 install: $(archive)
-	tar xzf $(archive) -C "$(FIREFOXDIR)"
-	tar xzf $(archive) -C "$(WATERFOXDIR)"
+	tar xzf $(archive) -C "$(firefoxdir)"
 
 uninstall:
-	cd "$(FIREFOXDIR)" && rm -rf -- $(files)
-	cd "$(WATERFOXDIR)" && rm -rf -- $(files)
+	cd "$(firefoxdir)" && rm -rf -- $(files)
